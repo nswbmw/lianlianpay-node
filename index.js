@@ -7,7 +7,7 @@ const HttpsProxyAgent = require('https-proxy-agent')
 const { SocksProxyAgent } = require('socks-proxy-agent')
 const sortKeys = require('sort-keys')
 
-function Lianlianpay (options = {}) {
+function LianLianPay (options = {}) {
   this.merchantId = options.merchantId || options.merchant_id
   this.merchantSecretKey = options.merchantSecretKey || options.merchant_secretKey
   this.lianlianPublicKey = options.lianlianPublicKey || options.lianlian_publicKey
@@ -46,28 +46,28 @@ function Lianlianpay (options = {}) {
   return this
 }
 
-Lianlianpay.prototype._getURL = function _getURL (url) {
+LianLianPay.prototype._getURL = function _getURL (url) {
   url = url.replace(/^\//, '')
   return (this.environment === 'sandbox')
-    ? `https://celer-api.LianLianpay-inc.com/${url}`
+    ? `https://celer-api.lianlianpay-inc.com/${url}`
     : `https://gpapi.lianlianpay.com/${url}`
 }
 
-Lianlianpay.prototype._getSignature = function _getSignature (privateKey, obj) {
+LianLianPay.prototype._getSignature = function _getSignature (privateKey, obj) {
   const sortedObj = sortKeys(obj, { deep: true })
   const signatureRawStr = getLeafNodes(sortedObj).join('&')
 
   return getRSASha1(privateKey, signatureRawStr)
 }
 
-Lianlianpay.prototype._verifySignature = function _verifySignature (publicKey, signature, obj) {
+LianLianPay.prototype._verifySignature = function _verifySignature (publicKey, signature, obj) {
   const sortedObj = sortKeys(obj, { deep: true })
   const signatureRawStr = getLeafNodes(sortedObj).join('&')
 
   return verifyRSASha1(publicKey, signature, signatureRawStr)
 }
 
-Lianlianpay.prototype.execute = async function execute ({ method = 'get', url, headers = {}, params = {} }) {
+LianLianPay.prototype.execute = async function execute ({ method = 'get', url, headers = {}, params = {} }) {
   // generate request signature
   const signature = await this._getSignature(this.merchantSecretKey, params)
   const payload = {
@@ -98,7 +98,7 @@ Lianlianpay.prototype.execute = async function execute ({ method = 'get', url, h
   return res.body
 }
 
-module.exports = Lianlianpay
+module.exports = LianLianPay
 
 function getLeafNodes (obj) {
   const result = []

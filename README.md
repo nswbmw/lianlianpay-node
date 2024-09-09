@@ -13,8 +13,8 @@ $ npm i lianlianpay --save
 ```js
 const moment = require('moment-timezone')
 
-const Lianlianpay = require('lianlianpay')
-const lianlianpayClient = new Lianlianpay({
+const LianLianPay = require('lianlianpay')
+const lianlianpayClient = new LianLianPay({
   merchantId: 'xxx',
   merchantSecretKey: `-----BEGIN PRIVATE KEY-----xxx-----END PRIVATE KEY-----`,
   lianlianPublicKey: '-----BEGIN PUBLIC KEY-----xxx-----END PUBLIC KEY-----',
