@@ -1,0 +1,39 @@
+{
+  "name": "lianlianpay",
+  "version": "1.0.0",
+  "description": "LianLianPay SDK for Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nswbmw",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nswbmw/lianlianpay-node"
+  },
+  "keywords": [
+    "lianlian",
+    "lianlianpay",
+    "连连",
+    "连连支付",
+    "连连国际"
+  ],
+  "devDependencies": {
+    "eslint": "8.47.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-standard": "4.1.0"
+  },
+  "dependencies": {
+    "http-errors": "2.0.0",
+    "https-proxy-agent": "5.0.1",
+    "moment": "2.30.1",
+    "moment-timezone": "0.5.45",
+    "request": "2.88.2",
+    "request-promise": "4.2.6",
+    "socks-proxy-agent": "7.0.0",
+    "sort-keys": "4.2.0"
+  }
+}
